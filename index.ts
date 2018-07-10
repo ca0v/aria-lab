@@ -3,6 +3,7 @@ function expand(element: Element) {
     let isCollapsed = element.classList.contains("collapsed");
     element.setAttribute("aria-expanded", (!isCollapsed) + "");
     element.setAttribute("aria-pressed", (!isCollapsed) + "");
+    return !isCollapsed;
 }
 
 function asArray<T extends Element>(items: HTMLCollectionOf<T> | NodeListOf<T>) {
@@ -10,6 +11,18 @@ function asArray<T extends Element>(items: HTMLCollectionOf<T> | NodeListOf<T>) 
     for (let i = 0; i < items.length; i++) {
         result[i] = items.item(i);
     }
+    return result;
+}
+
+function createExpander(anchor: HTMLElement) {
+    let result = document.createElement("input");
+    result.type = "button";
+    result.classList.add("expander", "collapsed");
+    result.setAttribute("aria-label", anchor.innerText);
+    result.addEventListener("click", () => {
+        expand(result);
+        expand(anchor);
+    });
     return result;
 }
 
@@ -27,10 +40,15 @@ function hookup(item: Element) {
 }
 
 function run() {
-    asArray(document.getElementsByClassName("collapsed")).forEach(collapsedItem => {
-        collapsedItem.setAttribute("aria-expanded", "false");
-        collapsedItem.setAttribute("tabindex", "0");
-        hookup(collapsedItem);
+    asArray(document.getElementsByClassName("label")).forEach(anchor => {
+        anchor.setAttribute("aria-expanded", "false");
+        anchor.setAttribute("tabindex", "0");
+        anchor.classList.add("collapsed");
+        let expander = createExpander(anchor);
+        if (anchor.parentElement) {
+            anchor.parentElement.insertBefore(expander, anchor);
+        }
+        anchor.addEventListener("click", () => console.log(anchor.outerHTML));
     });
 }
 
