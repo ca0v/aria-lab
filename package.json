@@ -1,0 +1,26 @@
+{
+  "name": "aria-lab",
+  "version": "1.0.0",
+  "description": "aria-lab",
+  "main": "index.js",
+  "scripts": {
+    "live-build": "tsc -w",
+    "live-server": "live-server --port=5000 --wait=2000 --ignorePattern=.*\\.ts",
+    "dev": "start npm run live-build && start npm run live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ca0v/aria-lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ca0v/aria-lab/issues"
+  },
+  "homepage": "https://github.com/ca0v/aria-lab#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0",
+    "typescript": "^2.9.2"
+  }
+}
