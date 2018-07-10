@@ -1,16 +1,21 @@
-span {
+.aria-lab child {
     display: block;
 }
 
-span.children {
+.aria-lab children {
+    display: block;
     padding-left: 20px;
 }
 
-label:focus {
+.aria-lab .expander + label {
+    padding-left: 4px;
+}
+
+.aria-lab label:focus {
     border: 1px solid black;
 }
 
-.expander {
+.aria-lab .expander {
     background-color: transparent;
     border: none;
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHAQAAAAAZ1+HOAAAAAnRSTlMAAQGU/a4AAAAdSURBVHjaY97/kEGOgfnvL+YqBsYDDEyKDExCDABI7AUxjpsRQAAAAABJRU5ErkJggg==");
@@ -20,11 +25,10 @@ label:focus {
     height: 16px;
 }
 
-.expander.collapsed {
+.aria-lab .expander.collapsed {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKAQAAAABQt3mgAAAAAnRSTlMAAQGU/a4AAAAaSURBVHjaY5jHwMfQxnCI4QEQHgKy+BjmAQA4pAWpty8c5wAAAABJRU5ErkJggg==");
 }
 
-.collapsed ~ .children {
+.aria-lab .collapsed ~ children {
     display: none;
 }
-

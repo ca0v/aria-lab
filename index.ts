@@ -39,16 +39,28 @@ function hookup(item: Element) {
     });
 }
 
+function clickable(element: HTMLElement) {
+    element.addEventListener("keypress", event => {
+        (event.keyCode === 13) && element.click();
+        switch (event.key) {
+            case " ":
+                element.click();
+                break;
+        }
+    });
+}
+
 function run() {
-    asArray(document.getElementsByClassName("label")).forEach(anchor => {
-        anchor.setAttribute("aria-expanded", "false");
+    asArray(document.getElementsByTagName("label")).forEach(anchor => {
         anchor.setAttribute("tabindex", "0");
-        anchor.classList.add("collapsed");
+        anchor.setAttribute("role", "link");
+        expand(anchor);
         let expander = createExpander(anchor);
         if (anchor.parentElement) {
             anchor.parentElement.insertBefore(expander, anchor);
         }
         anchor.addEventListener("click", () => console.log(anchor.outerHTML));
+        clickable(anchor);
     });
 }
 

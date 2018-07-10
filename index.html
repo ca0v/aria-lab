@@ -4,34 +4,30 @@
     @import url("index.css");
 </style>
 
-<body aria-live="">
-    <label class="label">Root 1</label>
-    <span class="children">
-        <span>
-            <label class="label">Folder 1</label>
-            <span class="children">
-                <span>
-                    <label class="label">Folder 1.1</label>
-                    <span class="children">
-                        <span>
-                            <label class="label">Child 1</label>
-                        </span>
-                    </span>
-                </span>
-                <span>
-                    <label class="label">Folder 1.2</label>
-                    <span class="children">
-                        <span>
-                            <label class="label">Child 1</label>
-                        </span>
-                        <span>
-                            <label class="label">Child 2</label>
-                        </span>
-                    </span>
-                </span>
-            </span>
-        </span>
-    </span>
+<body aria-live="" class="aria-lab">
+    <label>Root 1</label>
+    <children>
+        <label>Folder 1</label>
+        <children>
+            <label>Folder 1.1</label>
+            <children>
+                <child>
+                    <label>Child 1</label>
+                </child>
+                <child>
+                    <label>Folder 1.2</label>
+                    <children>
+                        <child>
+                            <label>Child 1</label>
+                        </child>
+                        <child>
+                            <label>Child 2</label>
+                        </child>
+                    </children>
+                </child>
+            </children>
+        </children>
+    </children>
 </body>
 
 <script src="./index.js"></script>

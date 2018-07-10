@@ -35,16 +35,27 @@ function hookup(item) {
         event.preventDefault();
     });
 }
+function clickable(element) {
+    element.addEventListener("keypress", function (event) {
+        (event.keyCode === 13) && element.click();
+        switch (event.key) {
+            case " ":
+                element.click();
+                break;
+        }
+    });
+}
 function run() {
-    asArray(document.getElementsByClassName("label")).forEach(function (anchor) {
-        anchor.setAttribute("aria-expanded", "false");
+    asArray(document.getElementsByTagName("label")).forEach(function (anchor) {
         anchor.setAttribute("tabindex", "0");
-        anchor.classList.add("collapsed");
+        anchor.setAttribute("role", "link");
+        expand(anchor);
         var expander = createExpander(anchor);
         if (anchor.parentElement) {
             anchor.parentElement.insertBefore(expander, anchor);
         }
         anchor.addEventListener("click", function () { return console.log(anchor.outerHTML); });
+        clickable(anchor);
     });
 }
 run();
