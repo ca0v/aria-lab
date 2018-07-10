@@ -1,0 +1,34 @@
+.hidden {
+    display: none;
+}
+
+ul.children {
+    list-style-type: none;
+}
+
+.label {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHAQAAAAAZ1+HOAAAAAnRSTlMAAQGU/a4AAAAdSURBVHjaY97/kEGOgfnvL+YqBsYDDEyKDExCDABI7AUxjpsRQAAAAABJRU5ErkJggg==");
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 16px;
+}
+
+span {
+    display: block;
+}
+
+span.children {
+    padding-left: 20px;
+}
+
+.label.collapsed {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKAQAAAABQt3mgAAAAAnRSTlMAAQGU/a4AAAAaSURBVHjaY5jHwMfQxnCI4QEQHgKy+BjmAQA4pAWpty8c5wAAAABJRU5ErkJggg==");
+}
+
+.collapsed + .children {
+    display: none;
+}
+
+label:focus {
+    border: 1px solid black;
+}

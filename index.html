@@ -1,27 +1,39 @@
 <html>
 
 <style>
-    .collapsed>.children {
-        display: none;
-    }
-
-    label:focus {
-        border: 1px solid black;
-    }
+    @import url("index.css");
 </style>
 
-<body>
-    <div aria-expanded="false" class="collapsed">
-        <label tabindex="0">Root 1</label>
-        <div aria-expanded="false" class="collapsed children">
-            <label tabindex="0">Child 1</label>
-            <ul class="children">
-                <li tabindex="0">Item 1</li>
-                <li tabindex="0">Item 2</li>
-                <li tabindex="0">Item 3</li>
-            </ul>
-        </div>
-    </div>
+<body aria-live="polite">
+    <label class="collapsed label">Root 1</label>
+    <span class="children">
+        <span>
+            <label class="collapsed label">Folder 1</label>
+            <span class="children">
+                <span>
+                    <label class="collapsed label">Folder 1.1</label>
+                    <span class="children">
+                        <span>
+                            <label class="collapsed label">Child 1</label>
+                        </span>
+                    </span>
+                </span>
+                <span>
+                    <label class="collapsed label">Folder 1.2
+                        <label aria-hidden="false" class="hidden">collapsed</label>
+                    </label>
+                    <span class="children">
+                        <span>
+                            <label class="collapsed label">Child 1</label>
+                        </span>
+                        <span>
+                            <label class="collapsed label">Child 2</label>
+                        </span>
+                    </span>
+                </span>
+            </span>
+        </span>
+    </span>
 </body>
 
 <script src="./index.js"></script>
